@@ -1,4 +1,9 @@
-FROM centos:7
+# Use a base image
+FROM centos:latest
 
-CMD ["date"]
+# Update package lists and install net-tools
+RUN yum update -y && \
+    yum install -y net-tools
 
+# Set the default command to run when the container starts
+CMD ["/bin/bash"]
